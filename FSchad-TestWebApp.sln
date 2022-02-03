@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSchad", "FSchad\FSchad.csproj", "{EEB52F4E-E0F8-4745-A060-E7C8CD995C7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FShad.Data", "FShad.Data\FShad.Data.csproj", "{317010BC-24FB-4B53-9E6B-8ADB080B55DA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EEB52F4E-E0F8-4745-A060-E7C8CD995C7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEB52F4E-E0F8-4745-A060-E7C8CD995C7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEB52F4E-E0F8-4745-A060-E7C8CD995C7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEB52F4E-E0F8-4745-A060-E7C8CD995C7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{317010BC-24FB-4B53-9E6B-8ADB080B55DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{317010BC-24FB-4B53-9E6B-8ADB080B55DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{317010BC-24FB-4B53-9E6B-8ADB080B55DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{317010BC-24FB-4B53-9E6B-8ADB080B55DA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DFD8A099-398D-4011-848A-F518619000DE}
+	EndGlobalSection
+EndGlobal

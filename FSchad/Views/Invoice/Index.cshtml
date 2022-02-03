@@ -1,0 +1,99 @@
+﻿@model List<FSchad.Models.InvoiceVM>
+@{
+    ViewData["Title"] = "Invoice Page";
+}
+
+<div class="text-center">
+    <h3 class="display-4">Invoice Maintenance</h3>
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <div class="alert alert-danger">
+            <p>@ViewBag.ErrorMessage</p>
+        </div>
+    }
+</div>
+
+<div class="row">
+    @*<div class="col-md-4">
+        <div class="card shadow">
+            <div class="card-body">
+                <h4>Add</h4>
+                <hr>
+                <form asp-action="Create" method="post">
+                    <div class="form-group">
+                        <label for="TotalItbis" class="control-label">TotalItbis:</label>
+                        <input type="number" name="TotalItbis" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="SubTotal" class="control-label">SubTotal:</label>
+                        <input type="number" name="SubTotal" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Total" class="control-label">Total:</label>
+                        <input type="number" name="Total" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="CustomerId" class="control-label">Customer:</label>
+                        @Html.DropDownList("CustomerId", (IEnumerable<SelectListItem>)ViewData["Customers"])
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Insert" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>*@
+
+    <div class="col-md-12">
+        <div class="card shadow">
+            <div class="card-body">
+                <div class="text-center">
+                    <h4>List</h4>
+                    <hr>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <td>Id</td>
+                                <td>TotalItbis</td>
+                                <td>SubTotal</td>
+                                <td>Total</td>
+                                <td>Customer Name</td>
+                                @*<td>Action</td>*@
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var element in Model)
+                            {
+                                <tr>
+                                    <td>@element.Id</td>
+                                    <td>@element.TotalItbis</td>
+                                    <td>@element.SubTotal</td>
+                                    <td>@element.Total</td>
+                                    <td>@element.Customer.CustName</td>
+                                    @*<td>
+                                        @using (Html.BeginForm("Update", "Invoice", new { element }))
+                                        {
+                                            @Html.AntiForgeryToken()
+
+                                            <div class="form-actions no-color">
+                                                <input type="submit" value="Update" class="btn btn-warning" />
+                                            </div>
+                                        }
+                                        @using (Html.BeginForm("Delete", "Invoice", new { id = element.Id }))
+                                        {
+                                            @Html.AntiForgeryToken()
+
+                                            <div class="form-actions no-color">
+                                                <input type="submit" value="Delete" class="btn btn-danger" />
+                                            </div>
+                                        }
+                                    </td>*@
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

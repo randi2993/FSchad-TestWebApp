@@ -1,0 +1,103 @@
+﻿@model List<FSchad.Models.InvoiceDetailsVM>
+@{
+    ViewData["Title"] = "Invoice Detail Page";
+}
+
+<div class="text-center">
+    <h3 class="display-4">Invoice Detail Maintenance</h3>
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <div class="alert alert-danger">
+            <p>@ViewBag.ErrorMessage</p>
+        </div>
+    }
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card shadow">
+            <div class="card-body">
+                <h4>Add</h4>
+                <hr>
+                <form asp-action="Create" method="post">
+                    <div class="form-group">
+                        <label for="Price" class="control-label">Price:</label>
+                        <input type="number" name="Price" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Qty" class="control-label">Qty:</label>
+                        <input type="number" name="Qty" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="InvoiceId" class="control-label">InvoiceId:</label>
+                        <input type="number" name="InvoiceId" class="form-control" />
+                    </div>
+                    <div class="form-group" title="Used only for new Invoce">
+                        <label for="CustomerId" class="control-label">Customer:</label>
+                        @Html.DropDownList("CustomerId", (IEnumerable<SelectListItem>)ViewData["Customers"])
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Insert" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <div class="card shadow">
+            <div class="card-body">
+                <div class="text-center">
+                    <h4>List</h4>
+                    <hr>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <td>Id</td>
+                                <td>Price</td>
+                                <td>Qty</td>
+                                <td>TotalItbis</td>
+                                <td>SubTotal</td>
+                                <td>Total</td>
+                                <td>Invoice Id</td>
+                                <td>Action</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var element in Model)
+                            {
+                                <tr>
+                                    <td>@element.Id</td>
+                                    <td>@element.Price</td>
+                                    <td>@element.Qty</td>
+                                    <td>@element.TotalItbis</td>
+                                    <td>@element.SubTotal</td>
+                                    <td>@element.Total</td>
+                                    <td>@element.Invoice.Id</td>
+                                    <td>
+                                        @using (Html.BeginForm("Update", "InvoiceDetails", new { element }))
+                                        {
+                                            @Html.AntiForgeryToken()
+
+                                            <div class="form-actions no-color">
+                                                <input type="submit" value="Update" class="btn btn-warning" />
+                                            </div>
+                                        }
+                                        @using (Html.BeginForm("Delete", "InvoiceDetails", new { id = element.Id }))
+                                        {
+                                            @Html.AntiForgeryToken()
+
+                                            <div class="form-actions no-color">
+                                                <input type="submit" value="Delete" class="btn btn-danger" />
+                                            </div>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
